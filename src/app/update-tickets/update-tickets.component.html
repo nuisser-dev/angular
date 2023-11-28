@@ -1,0 +1,35 @@
+
+<app-menu-nav></app-menu-nav>
+
+<div class="container">
+    <div>
+      <h2>Modify Ticket</h2>
+    </div>
+    <form>
+      <div class="form-group">
+        <label for="id_tickets">Ticket ID</label>
+        <input readonly type="number" [(ngModel)]="ticket.idtic" name="idtic" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="crt_date">Creation Date</label>
+        <input type="date" [ngModel]="ticket.crtdate | date:'yyyy-MM-dd'" (ngModelChange)="ticket.crtdate = $event" name="crtdate" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="decp">Description</label>
+        <input type="text" [(ngModel)]="ticket.descpt" name="descpt" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="prix_tickets">Ticket Price</label>
+        <input type="number" [(ngModel)]="ticket.prixtic" name="prixtic" class="form-control">
+      </div>
+      <div class="col-sm-4 col-md-4 col-lg-4">
+        <label>terrain</label>
+        <select class="form-control form-control-lg" id="codec" name="codec"  [(ngModel)]="terr_curn">
+        <option *ngFor="let category of update_ter" [value]=" category.idTer"> {{category.nomTer}}</option>
+        </select>
+        
+        </div> 
+      <button type="submit" (click)="modifyTicket()" class="btn btn-success">Modify</button>
+    </form>
+  </div>
+  

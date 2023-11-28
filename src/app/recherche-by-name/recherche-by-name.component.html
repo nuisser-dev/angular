@@ -1,0 +1,57 @@
+<app-menu-nav></app-menu-nav>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Tickets Table</title>
+    <!-- Bootstrap CSS -->
+
+</head>
+
+<body>
+
+    <div class="col-sm-4 col-md-4 col-lg-4 mb-4">
+        <form class="form-inline">
+            <div class="form-group mx-sm-3 mb-2 mt-2 ">
+            <label>Description</label>
+            <input #nom [(ngModel)]="searchTerm" name="searchTerm" class="form-control" >
+            </div>
+            </form>
+    
+            
+    </div>
+
+
+    <div class="container mt-5">
+        <h2>Tickets Information</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Creation Date</th>
+                    <th>Description</th>
+                    <th>Price</th>
+                    <th>Terrain name</th>
+                 
+                </tr>
+            </thead>
+            <tbody *ngFor="let ticket of tickets | searchFilter: searchTerm ">
+                <tr>
+                    <td>{{ticket.idtic}}</td>
+                    <td>{{ticket.crtdate | date:'dd/MM/yyyy'}}</td>
+                    <td>{{ticket.descpt}}</td>
+                    <td>{{ticket.prixtic | number : '1.3'}}</td>
+                    <td>{{ticket.terrain.nomTer}}</td>
+
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+
+</body>
+
+</html>

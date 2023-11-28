@@ -1,0 +1,52 @@
+<app-menu-nav></app-menu-nav>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Tickets Table</title>
+  <!-- Bootstrap CSS -->
+ 
+</head>
+
+<body>
+
+  <div class="container mt-5">
+    <h2>Tickets Information</h2>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Creation Date</th>
+          <th>Description</th>
+          <th>Price</th>
+          <th>Terrain name</th>
+          <th *ngIf="authService.isAdmin()">picture</th>
+        </tr>
+      </thead>
+      <tbody  *ngFor="let tickets of tab_tickets">
+        <tr >
+            <td>{{tickets.idtic}}</td>
+            <td>{{tickets.crtdate | date:'dd/MM/yyyy'}}</td>
+            <td>{{tickets.descpt}}</td>
+            <td>{{tickets.prixtic | number : '1.3'}}</td>
+        <td>{{tickets.terrain.nomTer}}</td> 
+            <td  >  <a *ngIf="authService.isAdmin()" class="btn btn-warning" [routerLink]="['/update-tickets',tickets.idtic]">
+          
+                <img src="../assets/img/edit.png" height="32" width="32" ></a> 
+          
+                  <a *ngIf="authService.isAdmin()" class="btn btn-danger" (click)="delete_tickets(tickets)" >
+                   <img src="../assets/img/delete.png" height="32" width="32"></a> 
+                  </td>
+                </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+
+</body>
+
+</html>
+

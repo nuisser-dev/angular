@@ -1,0 +1,36 @@
+<app-menu-nav></app-menu-nav>
+
+
+<div class="container">
+    <div>
+    <h2>Ajouter un tickets :</h2>
+    </div>
+    <form>
+        <div class="col-sm-2 col-md-2 col-lg-2">
+          <label>ID Ticket</label>
+          <input type="text" [(ngModel)]="newTickets.idtic" name="idtic" class="form-control">
+        </div>
+        <div class="col-sm-4 col-md-4 col-lg-4">
+          <label>Descriptiont</label>
+          <input type="text" [(ngModel)]="newTickets.descpt" name="descpt" class="form-control">
+        </div>
+        <div class="col-sm-2 col-md-2 col-lg-2">
+          <label>Prix </label>
+          <input type="number" [(ngModel)]="newTickets.prixtic" name="prixtic" class="form-control">
+        </div>
+        <div class="col-sm-4 col-md-4 col-lg-4">
+          <label>Date création</label>
+          <input type="date" [(ngModel)]="newTickets.crtdate" name="crtdate" class="form-control">
+        </div>
+    <div class="col-sm-4 col-md-4 col-lg-4">
+          <label>Liste Terrain</label>
+          <select class="form-control form-control-lg" id="codec" name="codec" [(ngModel)]="newidterr">
+          <option *ngFor="let cat of terr" [value]="cat.idTer">{{cat.nomTer}}</option>
+          </select>
+          </div> 
+        <div class="mt-2">
+          <button type="submit" (click)="addTickets()" class="btn btn-success">Ajouter</button>
+        </div>
+        
+      </form>
+      
